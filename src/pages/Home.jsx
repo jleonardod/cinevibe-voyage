@@ -1,4 +1,5 @@
 import React from "react"
+import MoodSelector from "../components/MoodSelector"
 
 function Home() {
   return(
@@ -7,6 +8,7 @@ function Home() {
       <p className="text-center mb-8 max-w-2xl mx-auto">
         Crea una noche de cine perfecta con CineVibe Voyage. Elige tu estado de ánimo y género y te recomendaremos películas, comida y una actividad para disfrutar.
       </p>
+      <MoodSelector onPlanGenerated={() => {}} />
     </div>
   )
 }
