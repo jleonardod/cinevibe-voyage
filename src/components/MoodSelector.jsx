@@ -53,7 +53,7 @@ function MoodSelector({ onPlanGenerated }) {
       localStorage.setItem("savedPlans", JSON.stringify(savedPlans))
 
       onPlanGenerated(plan)
-      //console.log("Plan generado:", plan)
+      navigate(`/plan/${plan.id}`)
     }catch (error) {
       console.error("Error generating plan:", error)
       alert("Error al generar el plan. Por favor intenta de nuevo.")
