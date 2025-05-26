@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import PlanCard from "../components/PlanCard"
 
 function Plan() {
   const { id } = useParams()
@@ -13,7 +14,9 @@ function Plan() {
 
   if (!plan) return <div className="text-center p-4">Plan no encontrado</div>
   return(
-    <div className="container mx-auto p-4 pt-20">{id}</div>
+    <div className="container mx-auto p-4 pt-20">
+      <PlanCard plan={plan} />
+    </div>
   )
 }
 
