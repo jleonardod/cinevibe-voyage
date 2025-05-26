@@ -1,4 +1,5 @@
 import { motion } from "framer-motion"
+import MovieCard from "./MovieCard"
 
 function PlanCard({ plan }) {
   const sharePlan = () => {
@@ -22,7 +23,7 @@ function PlanCard({ plan }) {
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-4">
         {plan.movies.map((movie) => (
-          <div key={movie.id}>Movie Card</div>
+          <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
       <p className="mb-2"><strong>Comida Sugerida: </strong>{plan.food}</p>
