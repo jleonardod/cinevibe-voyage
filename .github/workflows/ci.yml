@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 jobs:
-  test-and-lint:
+  build-and-Deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -25,3 +25,10 @@ jobs:
 
       - name: Run tests
         run: npm test
+      
+      - name: Deploy to Vercel
+        run: |
+          npx vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
