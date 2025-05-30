@@ -1,9 +1,8 @@
-import React, { use } from "react"
+import React from "react"
 import { render, screen, fireEvent, waitFor } from "@testing-library/react"
 import { MemoryRouter } from "react-router-dom"
 import MoodSelector from "../components/MoodSelector"
 import axios from "axios"
-import { wait } from "@testing-library/user-event/dist/cjs/utils/index.js"
 
 jest.mock('axios')
 
