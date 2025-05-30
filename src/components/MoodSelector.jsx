@@ -47,7 +47,7 @@ function MoodSelector({ onPlanGenerated }) {
         activity: activitySuggestions[mood],
         createdAt: new Date().toISOString()
       }
-      console.log("Hola mundo")
+      //console.log("Hola mundo")
       const savedPlans = JSON.parse(localStorage.getItem("savedPlans")) || []
       savedPlans.push(plan)
       localStorage.setItem("savedPlans", JSON.stringify(savedPlans))
@@ -64,7 +64,7 @@ function MoodSelector({ onPlanGenerated }) {
     <div className="bg-gray-800 p-6 rounded-lg shadow-lg max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-red-600">Crea tu noche de cine</h2>
       <div className="mb-4">
-        <label htmlFor="estado_animo" className="block mb-2 font-semibold">¿Cómo te sientes?</label>
+        <label htmlFor="estado_animo" className="block mb-2 font-semibold">¿Cóm?</label>
         <select id="estado_animo" value={mood} onChange={(e) => setMood(e.target.value)} className="bg-gray-700 p-2 rounded w-full text-white">
           <option value="">Selecciona un estado de animo</option>
           {moods.map((m) => (
