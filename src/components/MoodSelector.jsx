@@ -47,7 +47,7 @@ function MoodSelector({ onPlanGenerated }) {
         activity: activitySuggestions[mood],
         createdAt: new Date().toISOString()
       }
-
+      console.log("Hola mundo")
       const savedPlans = JSON.parse(localStorage.getItem("savedPlans")) || []
       savedPlans.push(plan)
       localStorage.setItem("savedPlans", JSON.stringify(savedPlans))
