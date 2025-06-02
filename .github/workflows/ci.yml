@@ -27,6 +27,7 @@ jobs:
         run: npm test
       
       - name: Deploy to Vercel
+        if: success()
         run: |
           npx vercel deploy --prod --token ${{ secrets.VERCEL_TOKEN }} --confirm
         env:
