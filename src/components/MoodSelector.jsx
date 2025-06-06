@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
+import OpenAI from "openai"
 
 function MoodSelector({ onPlanGenerated }) {
   const [mood, setMood] = useState("")
@@ -36,6 +37,10 @@ function MoodSelector({ onPlanGenerated }) {
       return
     }
     try{
+      const resIa = await fetch("http://localhost:3001/api/recomendar?genero=suspenso")
+      const dataIa = await resIa.json()
+      console.log("Respuesta de IA:", dataIa)
+      
       const response = await axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&with_genres=${genre}&sort_by=popularity.desc&language=es-ES`)
       const movies = response.data.results.slice(0, 3)
       const plan = {
