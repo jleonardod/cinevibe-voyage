@@ -37,7 +37,8 @@ function MoodSelector({ onPlanGenerated }) {
       return
     }
     try{
-      const resIa = await fetch("http://localhost:3001/api/recomendar?genero=suspenso")
+      let generoTexto = genres.find((g) => g.id === parseInt(genre))?.name || "desconocido"
+      const resIa = await fetch(`http://localhost:3001/api/recomendar?genero=${generoTexto}`)
       const dataIa = await resIa.json()
       console.log("Respuesta de IA:", dataIa)
       
@@ -46,13 +47,12 @@ function MoodSelector({ onPlanGenerated }) {
       const plan = {
         id: Date.now().toString(),
         mood,
-        genre: genres.find((g) => g.id === parseInt(genre)).name,
+        genre: generoTexto,
         movies,
         food: foodSuggestions[mood],
         activity: activitySuggestions[mood],
         createdAt: new Date().toISOString()
       }
-      //console.log("Hola mundo")
       const savedPlans = JSON.parse(localStorage.getItem("savedPlans")) || []
       savedPlans.push(plan)
       localStorage.setItem("savedPlans", JSON.stringify(savedPlans))
